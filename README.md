@@ -4,7 +4,7 @@
 * Let's say you need a day off of work but have no idea what to say.  We have you covered. You'll go to CallinSki, decide why you want to call in.
 
 ## Installation:
-* On a web browser please follow the link to begin exploring. [Workaholics.](https://www.github.com)
+* On a web browser please follow the link to begin exploring. [Workaholics: Callinski.](https://junel-balbin.github.io/Workaholics)
 * Accessible on any mobile device and tablet.
 
 ## Usage:
@@ -15,7 +15,7 @@
 ## Coded With:
 * HTML, CSS & JavaScript.
 * Visual Studio Code.
-* [System Checker API.](https://rapidapi.com/KiloPappa/api/symptom-checker4/)
+* [Symptom Checker API.](https://rapidapi.com/KiloPappa/api/symptom-checker4/)
 * [Mental Health API.](https://rapidapi.com/creatorvision/api/mental-health-info-api/)
 * [Giphy Gifs API.](https://rapidapi.com/giphy/api/giphy/)
 * [Google Fonts.](https://fonts.google.com/)

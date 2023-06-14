@@ -3,32 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Mental Health</title>
     <link rel="stylesheet" href="./assets/style.css">
     
 </head>
 <body>
     
-  <main>
+  <main class="container">
     <section class="card3">
         <header>MENTAL HEALTH</header>
         <img src="./images/mentalillness.png" alt="Mental Health Artwork" />
-        <p>
-            <button onclick="mentalMe()">GENERATE YOUR EXCUSE !</button>
+            <button id="mentalButton" onclick="mentalMe()">Generate</button>
+            <button id="saveExcuseButton">Save</button>
+            <button id="clearExcusesButton">Clear</button>
+            <button onclick="window.location.href = 'excuses.html';">Exit</button>
             <h3 id="motivato"></h3>
-        </p>
-        <p>
-            
-                <button onclick="window.location.href = 'excuses.html';">CHOOSE ANOTHER EXCUSE</button>
-           
-        </p>
-      </section>
   </main>  
+
+  <section>
+    <div id="excuseCard" class="card" style="display: none;">
+      <div id="excuseQuote" class="quote"></div>
+      <div id="excusePerson" class="person"></div>
+    </div>
+    </section>
     
     
     <script src="./assets/script.js"></script>
 </body>
-<footer>
-   
-</footer>
 </html>

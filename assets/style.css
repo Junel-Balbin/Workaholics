@@ -1,114 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@500&family=Exo+2:wght@500&family=Geo&family=Source+Code+Pro:wght@500&display=swap');
+
 * {
-    box-sizing: border-box;
-  }
+  margin: 0 auto;
+  padding: 10px;
+  box-sizing: border-box;
+  font-family: Source Code Pro,'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+body {
+  font-family: Arial;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+header {
+  padding: 60px;
+  text-align: center;
+  background: #343739;
+  color: #fff;
+}
   
-  body {
-    font-family: Arial;
-    margin: 0;
-  }
+.container {
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.card {
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 10px;
+  text-align: center;
+  padding: 10px;
+  float: left;
+  width: 25%;
+  background-color: rgb(241, 245, 251);
+}
   
-  header {
-    padding: 60px;
-    text-align: center;
-    background: #343739;
-    color: #fff;
-  }
+.card header {
+  border-radius: 10px;
+  padding: 20px;
+}
   
+.card p {
+  text-align: center;
+}
+  
+.card img {
+  border-radius: 20px;
+  width: 100%;
+}
+  
+.card1 {
+  border-style: solid;
+  border-width: 1px;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  margin: 25px 0 0 400px;
+  width: 50%;
+  background-color: rgb(241, 245, 251);
+}
+  
+.card1 header {
+  border-radius: 10px;
+  padding: 20px;
+}
+  
+.card1 img {
+  border-radius: 20px;
+  width: 100%;
+}
+
+.card2 {
+  border-style: solid;
+  border-width: 1px;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  margin: 25px 0 0 400px;
+  width: 50%;
+  background-color: rgb(241, 245, 251);
+}
+  
+.card2 header {
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.card2 img {
+  border-radius: 20px;
+  width: 100%;
+}
+
+.card3 {
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 10px;
+  text-align: center;
+  padding: 10px;
+  margin: 25px 0 0 400px;
+  width: 50%;
+  background-color: rgb(241, 245, 251);
+}
+  
+.card3 header {
+  border-radius: 10px;
+  padding: 20px;
+}
+  
+.card3 img {
+  border-radius: 20px;
+  width: 100%;
+}
+
+button {
+  color: #090909;
+  padding: 5px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  margin-left: 8px;
+  margin-right: 8px;
+  font-size: 16px;
+  border-radius: 10px;
+  background: rgb(241, 245, 251);
+  border: none;
+  align-items: center;
+  transition: all .1s;
+  box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+}
+
+button:hover {
+  transition: 0.2s ease-in-out;
+  background-color: rgb(87, 163, 239);
+  cursor: pointer;
+}
+
+.card {
+  border: 1px solid black;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.quote {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.person {
+  font-size: 14px;
+  color: black;
+}
+
+
+
+
+@media screen and (max-width: 992px) {
   .card {
-    border-style: solid;
-    border-width: 1px;
-    padding: 10px;
-    float: left;
-    width: 25%;
-  }
-  
-  .card header {
-    padding: 20px;
-  }
-  
-  .card p {
-    text-align: center;
-  }
-  
-  .card img {
-    width: 100%;
-  }
-  
-  .card1 {
-    border-style: solid;
-    border-width: 1px;
-    padding: 10px;
-    margin: 25px 0 0 400px;
     width: 50%;
   }
-  
-  .card1 header {
-    padding: 20px;
-  }
-  
-  .card1  {
-    text-align: center;
-  }
-  
-  .card1 img {
-    width: 100%;
-  }
-  .card2 {
-    border-style: solid;
-    border-width: 1px;
-    padding: 10px;
-    margin: 25px 0 0 400px;
-    width: 50%;
-  }
-  
-  .card2 header {
-    padding: 20px;
-  }
-  
-  .card2  {
-    text-align: center;
-  }
-  
-  .card2 img {
-    width: 100%;
-  }
-  .card3 {
-    border-style: solid;
-    border-width: 1px;
-    padding: 10px;
-    margin: 25px 0 0 400px;
-    width: 50%;
-  }
-  
-  .card3 header {
-    padding: 20px;
-  }
-  
-  .card3  {
-    text-align: center;
-  }
-  
-  .card3 img {
-    width: 100%;
-  }
-  @media screen and (max-width: 992px) {
-    .card {
-      width: 50%;
-    }
     
-    header {
-      background: #682c24;
-    }
+  header {
+    background: rgb(87, 163, 239);
   }
+}
   
   
-  @media screen and (max-width: 768px) {
-    .card {
-      width: 100%;
-    }
+@media screen and (max-width: 768px) {
+  .card {
+    width: 100%;
+  }
     
-    header {
-      background: #8ac4ff;
-    }
+  header {
+    background: #6b55ea;
   }
-  
+}

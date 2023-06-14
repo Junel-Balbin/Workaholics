@@ -3,32 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sick</title>
     <link rel="stylesheet" href="./assets/style.css">
-    
 </head>
 <body>
-    
-  <main>
-    <section class="card1">
+
+  <main class="container">
+    <div class="card1">
         <header>SICK</header>
-        <img src="./images/delivery sick.png" alt="Sick Girl" />
-        <p>
-            <button onclick="motivateMe()">GENERATE YOUR EXCUSE !</button>
-            <h3 id="motivato"></h3>
-        </p>
-        <p>
-            
-                <button onclick="window.location.href = 'excuses.html';">CHOOSE ANOTHER EXCUSE</button>
-           
-        </p>
-      </section>
-  </main>  
+        <img src="./images/sick.png" alt="Sick Girl" />
+          <button id="motivateButton" onclick="motivateMe()">Generate</button>
+          <button id="saveExcuseButton">Save</button>
+          <button id="clearExcusesButton">Clear</button>
+          <button onclick="window.location.href = 'excuses.html';">Exit</button>
+          <h3 id="motivato"></h3>
+    </div>
+  </main>
+  
+  <section>
+  <div id="excuseCard" class="card" style="display: none;">
+    <div id="excuseQuote" class="quote"></div>
+    <div id="excusePerson" class="person"></div>
+  </div>
+  </section>
     
     
     <script src="./assets/script.js"></script>
 </body>
-<footer>
-   
-</footer>
 </html>

@@ -3,32 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Physical Injury</title>
     <link rel="stylesheet" href="./assets/style.css">
     
 </head>
 <body>
     
-  <main>
-    <section class="card2">
+  <main class="container">
+    <div class="card2">
         <header>PHYSICAL INJURY</header>
         <img src="./images/physicalinjury.png" alt="broken leg" />
-        <p>
-            <button onclick="physicalMe()">GENERATE YOUR EXCUSE !</button>
+            <button id="physicalMe" onclick="physicalMe()">Generate</button>
+            <button id="saveExcuseButton">Save</button>
+            <button id="clearExcusesButton">Clear</button>
+            <button onclick="window.location.href = 'excuses.html';">Exit</button>
             <h3 id="motivato"></h3>
-        </p>
-        <p>
-            
-                <button onclick="window.location.href = 'excuses.html';">CHOOSE ANOTHER EXCUSE</button>
-           
-        </p>
-      </section>
+      </div>
   </main>  
     
-    
+  <section>
+    <div id="excuseCard" class="card" style="display: none;">
+      <div id="excuseQuote" class="quote"></div>
+      <div id="excusePerson" class="person"></div>
+    </div>
+    </section>
+      
+      
     <script src="./assets/script.js"></script>
 </body>
-<footer>
-   
-</footer>
 </html>

@@ -1,91 +1,184 @@
-const display = document.getElementById("motivato", "physical", "mental", "misc");
+const display = document.getElementById("motivato");
+const excuseCard = document.getElementById("excuseCard");
+const excuseQuote = document.getElementById("excuseQuote");
+const excusePerson = document.getElementById("excusePerson");
+const saveExcuseButton = document.getElementById("saveExcuseButton");
+const clearExcusesButton = document.getElementById("clearExcusesButton");
 
+const motivation = [
+  {
+    quote: "COUGH",
+    person: "Having trouble breathing and coughing only helps."
+  },
+  {
+    quote: "COVID",
+    person: "Just got back from Las Vegas and apparently what's supposed to stay in Vegas didn't."
+  },
+  {
+    quote: "DIZZINESS",
+    person: "I forgot to eat breakfast and I think my blood sugar is low."
+  },
+  {
+    quote: "HEADACHE",
+    person: "I've been thinking about work but now I have a headache."
+  },
+  {
+    quote: "TAKOTSUBO",
+    person: "My significant other left me. Now I have Broken Heart Syndrome."
+  }
+];
 
-const motivation = [{
-  quote: "COUGH",
-  person: "LAY YOUR HEAD OFF THE EDGE OF THE BED AND SAY YOUR SICK"
-}, {
-  quote: "COVID",
-  person: "JUST GOT BACK FROM VEGAS AND APPARENTLY WHAT SUPPOSED TO STAY IN VEGAS DIDN'T"
-}, {
-  quote: "DIZZINESS",
-  person: "I FORGOT TO EAT LUNCH, THINK MY BLOOD SUGAR IS LOW."
-}, {
-  quote: "HEADACHE",
-  person: "IVE BEEN THINKING ABOUT ABOUT WORKING, NOW I HAVE A HEADACHE!"
-}, {
-  quote: "TAKOTSUBO",
-  person: "MY SIGNIFICANT OTHER LEFT ME, NOW I HAVE BROKEN HEART SYNDROME."
-}];
+const physical = [
+  {
+    quote: "DUI",
+    person: "I accidentally crashed into a fire hydrant because I couldn't afford another parking ticket."
+  },
+  {
+    quote: "TOOTHACHE",
+    person: "I was brushing my teeth too aggressively getting ready for work."
+  },
+  {
+    quote: "SKYDIVING",
+    person: "My parachute didn't open but I'm alive because I was wearing my helmet."
+  },
+  {
+    quote: "PLAYING FOOTBALL",
+    person: "I was on my Playstation and I hurt my thumbs catching the ball."
+  },
+  {
+    quote: "GOT INTO A FIGHT",
+    person: "My dog wouldn't listen to me so we argued all night long."
+  }
+];
 
-const physical = [{
-    quote1: "DUI",
-    person1: "I DROVE BECAUSE I COULDN'T AFFORD ANOTHER PARKING TICKET."
-  }, {
-    quote1: "MVC",
-    person1: "I GOT INTO AN ACCIDENT CALLING OFF FROM WORK."
-  }, {
-    quote1: "SKYDIVING",
-    person1: "MY CHUTE DIDN'T OPEN BUT I'M OK BECAUSE I WAS WEARING MY HELMET."
-  }, {
-    quote1: "PLAYING FOOTBALL",
-    person1: "I WAS ON MY PLAYSTATION AND I HURT MY THUMBS CATCHING A BALL."
-  }, {
-    quote1: "GOT INTO A FIGHT",
-    person1: "MY DOG WOULDN'T LISTEN TO ME, SO WE ARGUED ALL NIGHT LONG."
-  }];
+const mental = [
+  {
+    quote: "GOING CRAZY",
+    person: "I'm starting to lose my mind finishing this project with the impossible deadline."
+  },
+  {
+    quote: "FEELING DOWN",
+    person: "I woke up this morning and couldn't find my lucky underwear. Without it I'm just not myself."
+  },
+  {
+    quote: "BAD MEMORY",
+    person: "I've forgotten my coworkers names and I even tried getting a tattoo of my work schedule."
+  },
+  {
+    quote: "VOICES",
+    person: "I'm afraid the voices in my head will write some code that will crash the entire system."
+  },
+  {
+    quote: "ANXIOUS",
+    person: "There are bugs on the floor. It sounds silly but I can't get out of my bed and debug."
+  }
+];
 
-  const mental = [{
-    quote2: "GOING CRAZY",
-    person2: "I DROVE BECAUSE I COULDN'T AFFORD ANOTHER PARKING TICKET."
-  }, {
-    quote2: "FEELING DOWN",
-    person2: "I GOT INTO AN ACCIDENT CALLING OFF FROM WORK."
-  }, {
-    quote2: "I WAS PUT ON A HOLD",
-    person2: "MY CHUTE DIDN'T OPEN BUT I'M OK BECAUSE I WAS WEARING MY HELMET."
-  }, {
-    quote2: "MENTAL RESTRICTIONS",
-    person2: "I WAS ON MY PLAYSTATION AND I HURT MY THUMBS CATCHING A BALL."
-  }, {
-    quote2: "ANXIOUS",
-    person2: "MY DOG WOULDN'T LISTEN TO ME, SO WE ARGUED ALL NIGHT LONG."
-  }];
+const misc = [
+  {
+    quote: "DENTIST",
+    person: "It's painful to eat lunch at work with my bad teeth."
+  },
+  {
+    quote: "EYE EXAM",
+    person: "My coworker told me about cataracts, glaucoma and even blindness. My eyes became watery and wouldn't stop."
+  },
+  {
+    quote: "BLOOD TEST",
+    person: "I have been pale lately. I'm scared I might turn into a vampire."
+  },
+  {
+    quote: "EAR CARE",
+    person: "It all started when I was having a difficult time hearing instructions from my team leaders."
+  },
+  {
+    quote: "DERMATOLOGIST",
+    person: "I've been itching my face so I'm afraid it might be contagious."
+  }
+];
 
-  const misc = [{
-    quote3: "GOING CRAZY",
-    person3: "MY INLAWS ARE OVER FOR THE MONTH. THEY ARE MAKING ME CRAZY."
-  }, {
-    quote3: "FEELING DOWN",
-    person3: "I SAW MY PAYCHECK NOW IM SAD AND DEPRESSED."
-  }, {
-    quote3: "I WAS PUT ON A HOLD",
-    person3: "I DONT KNOW WHAT A 5150 IS BUT I DO KNOW NOW."
-  }, {
-    quote3: "MENTAL RESTRICTIONS",
-    person3: "I SAW MY PSYCHIATRIST AND HE TOLD ME TO DO ONLY THINGS I ENJOY, LIKE SLEEP."
-  }, {
-    quote3: "ANXIOUS",
-    person3: "CALL THE POLICE, BECUASE MY MIND IS KILLING ME."
-  }];
 function motivateMe() {
   const listLength = motivation.length;
   const randVal = motivation[Math.floor(Math.random() * listLength)];
   display.innerHTML = `<q>${randVal.quote}</q><br><br><small>${randVal.person}</small>`;
 }
-function physicalMe() {
-    const listLength = physical.length;
-    const randVal = physical[Math.floor(Math.random() * listLength)];
-    display.innerHTML = `<q>${randVal.quote1}</q><br><br><small>${randVal.person1}</small>`;
-  }
-  function mentalMe() {
-    const listLength = mental.length;
-    const randVal = mental[Math.floor(Math.random() * listLength)];
-    display.innerHTML = `<q>${randVal.quote2}</q><br><br><small>${randVal.person2}</small>`;
-  }
 
-  function miscMe() {
-    const listLength = misc.length;
-    const randVal = misc[Math.floor(Math.random() * listLength)];
-    display.innerHTML = `<q>${randVal.quote3}</q><br><br><small>${randVal.person3}</small>`;
+function physicalMe() {
+  const listLength = physical.length;
+  const randVal = physical[Math.floor(Math.random() * listLength)];
+  display.innerHTML = `<q>${randVal.quote}</q><br><br><small>${randVal.person}</small>`;
+}
+
+function mentalMe() {
+  const listLength = mental.length;
+  const randVal = mental[Math.floor(Math.random() * listLength)];
+  display.innerHTML = `<q>${randVal.quote}</q><br><br><small>${randVal.person}</small>`;
+}
+
+function miscMe() {
+  const listLength = misc.length;
+  const randVal = misc[Math.floor(Math.random() * listLength)];
+  display.innerHTML = `<q>${randVal.quote}</q><br><br><small>${randVal.person}</small>`;
+}
+
+
+
+function saveExcuse(excuse) {
+  localStorage.setItem("selectedExcuse", JSON.stringify(excuse));
+  updateExcuseCard(excuse);
+}
+
+function updateExcuseCard(excuse) {
+  excuseQuote.textContent = excuse.quote;
+  excusePerson.textContent = excuse.person;
+  excuseCard.style.display = "block";
+}
+
+function motivateMe() {
+  const listLength = motivation.length;
+  const randVal = motivation[Math.floor(Math.random() * listLength)];
+  display.innerHTML = `<q>${randVal.quote}</q><br><br><small>${randVal.person}</small>`;
+  saveExcuseButton.addEventListener("click", () => saveExcuse(randVal));
+}
+
+function physicalMe() {
+  const listLength = physical.length;
+  const randVal = physical[Math.floor(Math.random() * listLength)];
+  display.innerHTML = `<q>${randVal.quote}</q><br><br><small>${randVal.person}</small>`;
+  saveExcuseButton.addEventListener("click", () => saveExcuse(randVal));
+}
+
+function mentalMe() {
+  const listLength = mental.length;
+  const randVal = mental[Math.floor(Math.random() * listLength)];
+  display.innerHTML = `<q>${randVal.quote}</q><br><br><small>${randVal.person}</small>`;
+  saveExcuseButton.addEventListener("click", () => saveExcuse(randVal));
+}
+
+function miscMe() {
+  const listLength = misc.length;
+  const randVal = misc[Math.floor(Math.random() * listLength)];
+  display.innerHTML = `<q>${randVal.quote}</q><br><br><small>${randVal.person}</small>`;
+  saveExcuseButton.addEventListener("click", () => saveExcuse(randVal));
+}
+
+
+function clearExcuses() {
+  localStorage.removeItem("selectedExcuse");
+  excuseCard.style.display = "none";
+}
+
+function getSavedExcuse() {
+  const savedExcuse = localStorage.getItem("selectedExcuse");
+  if (savedExcuse) {
+    return JSON.parse(savedExcuse);
   }
+  return null;
+}
+
+const savedExcuse = getSavedExcuse();
+if (savedExcuse) {
+  updateExcuseCard(savedExcuse);
+}
+
+clearExcusesButton.addEventListener("click", clearExcuses);

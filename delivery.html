@@ -4,30 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sick</title>
-    <link rel="stylesheet" href="./assets/style.css">
+    <link rel="stylesheet" href="./assets/style2.css">
 </head>
 <body>
 
   <main class="container">
     <div class="card1">
-        <header>SICK</header>
+      <header>SICK</header>
         <img src="./images/sick.png" alt="Sick Girl" />
-          <button id="motivateButton" onclick="motivateMe()">Generate</button>
-          <button id="saveExcuseButton">Save</button>
-          <button id="clearExcusesButton">Clear</button>
-          <button onclick="window.location.href = 'excuses.html';">Exit</button>
-          <h3 id="motivato"></h3>
+        <button id="motivateButton" onclick="motivateMe()">Generate Excuse</button>
+        <button id="saveExcuseButton">Save</button>
+        <button id="clearExcusesButton">Clear</button>
+        <button onclick="window.location.href = 'excuses.html';">Exit</button>
+        <h3 id="motivato"></h3>
+        <hr>
+        <br>
+        <input type="text" id="searchInput" placeholder="Waiting for your boss?">
+        <button id="searchButton" onclick="searchGIF()">GIPHY</button>
+        <button id="clearGIFsButton">Clear</button>
+        <div id="gifContainer"></div>
     </div>
   </main>
   
   <section>
-  <div id="excuseCard" class="card" style="display: none;">
-    <div id="excuseQuote" class="quote"></div>
-    <div id="excusePerson" class="person"></div>
-  </div>
+    <div id="excuseCard" class="card" style="display: none;"><p>------ Your Saved Delivery Excuse ------</p>
+      <div id="excuseQuote" class="quote"></div>
+      <div id="excusePerson" class="person"></div>
+    </div>
   </section>
     
-    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="./assets/script.js"></script>
 </body>
 </html>

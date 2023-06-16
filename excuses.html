@@ -6,8 +6,12 @@
     <title>Workaholics</title>
     <link rel="stylesheet" href="./assets/style.css">
 </head>
-    <h1 style="text-align:center;"><a href="index.html">PLEASE CHOOSE TYPE OF EXCUSE.</a>
-    </h1></h1>
+    <h1 style="text-align:center;"><a href="index.html">PLEASE CHOOSE YOUR TYPE OF EXCUSE.</a></h1>
+    <div class="date-time">
+      <p id="currentDay" class="lead"></p>
+      <span id="date"></span>
+      <span id="time"></span>
+  </div>
 <main>
     <section class="card" data-tilt>
         <header>SICK</header>
@@ -39,13 +43,15 @@
             <button onclick="window.location.href = 'misc.html';">Choose</button>
         </p>
       </section>
-
-      
     </main>
 
-</main>
-
 <body>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script
+  src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+  integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
+  crossorigin="anonymous"
+></script>
   <script src="./assets/vanilla-tilt.js"></script>
   <script src="./assets/script.js"></script>
 </body>

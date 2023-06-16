@@ -4,6 +4,60 @@ const excuseQuote = document.getElementById("excuseQuote");
 const excusePerson = document.getElementById("excusePerson");
 const saveExcuseButton = document.getElementById("saveExcuseButton");
 const clearExcusesButton = document.getElementById("clearExcusesButton");
+const searchInput = document.getElementById("searchInput");
+const searchButton = document.getElementById("searchButton");
+const gifContainer = document.getElementById("gifContainer");
+const clearGIFsButton = document.getElementById("clearGIFsButton");
+
+
+function nowTime() {
+  var dateElement = $("#date");
+  var timeElement = $("#time");
+  var currentDate = dayjs().format("dddd, MMMM D, YYYY");
+  var currentTime = dayjs().format("hh:mm:ss a");
+  dateElement.text(currentDate);
+  timeElement.text(currentTime);
+}
+
+setInterval(nowTime);
+
+
+
+function searchGIF() {
+  const searchTerm = searchInput.value;
+  if (searchTerm.trim() !== "") {
+    const apiKey = 'csx8dZaQHxPwuhacZ0JAs1xjFxE9lsIf';
+    const searchUrl = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${encodeURIComponent(searchTerm)}`;
+
+    $.ajax({
+      url: searchUrl,
+      method: 'GET'
+    }).done(function (response) {
+      console.log(response);
+      const gifUrl = response.data[0].images.original.url;
+      const gifContainer = document.getElementById('gifContainer');
+      gifContainer.innerHTML = `<img src="${gifUrl}" alt="GIF for ${searchTerm}" />`;
+    }).fail(function (xhr, status, error) {
+      console.error(error);
+    });
+  }
+}
+
+searchInput.addEventListener('keyup', function(event) {
+  if (event.key === 'Enter') {
+    searchGIF();
+  }
+});
+
+function clearGIFs() {
+  gifContainer.innerHTML = "";
+}
+
+clearGIFsButton.addEventListener("click", clearGIFs);
+
+
+
+
 
 const motivation = [
   {

@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Chakra Petch', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #090909;
+  padding: 5px;
+  margin: 0 auto;
+  font-size: 16px;
+  border-radius: 10px;
+  background: rgb(241, 245, 251);
+  border: none;
+  transition: all 0.1s;
+  box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+}
+
+button:hover {
+  transition: 0.2s ease-in-out;
+  background-color: rgb(87, 163, 239);
+  cursor: pointer;
+}

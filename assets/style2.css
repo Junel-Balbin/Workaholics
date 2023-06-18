@@ -116,6 +116,19 @@ button:hover {
   cursor: pointer;
 }
 
+.recipe-button {
+  background-color: #464a4d;
+  color: #ffffff;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.favorite-star {
+  color: rgb(28, 137, 246); 
+  font-size: 25px;
+  cursor: pointer;
+}
+
 #motivato {
   color: black;
   font-size: 20px;
@@ -163,7 +176,7 @@ button:hover {
 
 @media screen and (max-width: 900px) {
   .card {
-    width: 50%;
+    width: 55%;
   }
 
   header {

@@ -18,12 +18,15 @@
         <button id="clearExcusesButton">Clear</button>
         <button onclick="window.location.href = 'excuses.html';">Exit</button>
         <h3 id="motivato"></h3>
-        <hr>
         <br>
         <input type="text" id="searchInput" placeholder="GIPHY CURE." style="width: 110px;">
         <button id="searchButton" onclick="searchGIF()">Search</button>
-        <button id="clearGIFsButton">Clear</button>
+        <button id="clearGIFsButton">Close</button>
         <div id="gifContainer"></div>
+        <br>
+        <button id="buttonId" onclick="fetchRecipes()">Chicken Soup Recipes</button>
+        <button id="clearRecipesButton" onclick="clearRecipes()">X</button>
+        <div id="apiResponse"></div>
     </div>
   </main>  
     

@@ -10,10 +10,6 @@ const gifContainer = document.getElementById("gifContainer");
 const clearGIFsButton = document.getElementById("clearGIFsButton");
 
 
-
-
-
-
 function searchGIF() {
   const searchTerm = searchInput.value;
   if (searchTerm.trim() !== "") {
@@ -45,6 +41,131 @@ function clearGIFs() {
 }
 
 clearGIFsButton.addEventListener("click", clearGIFs);
+
+
+
+
+function fetchRecipes() {
+  var query = 'chicken soup';
+
+  $.ajax({
+    method: 'GET',
+    url: 'https://api.api-ninjas.com/v1/recipe?query=' + query,
+    headers: { 'X-Api-Key': 'R/lbk2JexyYe9JpA0Jdo7w==G6pQbG32x7JQZZox' },
+    contentType: 'application/json',
+    success: function(result) {
+      var apiResponseDiv = document.getElementById('apiResponse');
+      apiResponseDiv.innerHTML = '';
+
+      result.forEach(function(recipe) {
+        var recipeTitle = recipe.title;
+        var ingredients = recipe.ingredients;
+        var instructions = recipe.instructions;
+
+        var recipeButton = document.createElement('button');
+        recipeButton.textContent = recipeTitle;
+        recipeButton.className = 'recipe-button';
+        recipeButton.addEventListener('click', function() {
+          toggleCollapse(recipeButton);
+        });
+
+        var starIcon = document.createElement('span');
+        starIcon.className = 'favorite-star';
+        starIcon.innerHTML = '&#9734;';
+
+        starIcon.addEventListener('click', function(event) {
+          event.stopPropagation();
+          toggleFavorite(starIcon, recipeTitle);
+        });
+
+
+        var isFavorite = getFavoriteStatus(recipeTitle);
+        if (isFavorite) {
+          starIcon.classList.add('favorite');
+          starIcon.innerHTML = '&#9733;';
+        }
+
+        var recipeDiv = document.createElement('div');
+        recipeDiv.className = 'recipe-container';
+
+        var recipeHeaderDiv = document.createElement('div');
+        recipeHeaderDiv.className = 'recipe-header';
+
+        recipeHeaderDiv.appendChild(recipeButton);
+        recipeHeaderDiv.appendChild(starIcon);
+
+        var ingredientsDiv = document.createElement('div');
+        ingredientsDiv.textContent = 'Ingredients: ' + ingredients;
+        ingredientsDiv.style.display = 'none';
+
+        var instructionsDiv = document.createElement('div');
+        instructionsDiv.textContent = 'Instructions: ' + instructions;
+        instructionsDiv.style.display = 'none';
+
+        recipeDiv.appendChild(recipeHeaderDiv);
+        recipeDiv.appendChild(ingredientsDiv);
+        recipeDiv.appendChild(instructionsDiv);
+
+        apiResponseDiv.appendChild(recipeDiv);
+      });
+    },
+    error: function ajaxError(jqXHR) {
+      console.error('Error: ', jqXHR.responseText);
+    }
+  });
+}
+
+function toggleCollapse(recipeButton) {
+  var recipeDiv = recipeButton.parentNode.parentNode;
+  var ingredientsDiv = recipeDiv.querySelector('div:nth-child(2)');
+  var instructionsDiv = recipeDiv.querySelector('div:nth-child(3)');
+
+  ingredientsDiv.style.display = ingredientsDiv.style.display === 'none' ? 'block' : 'none';
+  instructionsDiv.style.display = instructionsDiv.style.display === 'none' ? 'block' : 'none';
+}
+
+function toggleFavorite(starIcon, recipeTitle) {
+  starIcon.classList.toggle('favorite');
+  var isFavorite = starIcon.classList.contains('favorite');
+
+  if (isFavorite) {
+    starIcon.innerHTML = '&#9733;';
+    saveFavoriteStatus(recipeTitle, true);
+  } else {
+    starIcon.innerHTML = '&#9734;';
+    saveFavoriteStatus(recipeTitle, false);
+  }
+}
+
+function saveFavoriteStatus(recipeTitle, isFavorite) {
+  var favorites = getFavoritesFromStorage();
+
+  if (isFavorite) {
+    favorites.push(recipeTitle);
+  } else {
+    var index = favorites.indexOf(recipeTitle);
+    if (index > -1) {
+      favorites.splice(index, 1);
+    }
+  }
+
+  localStorage.setItem('favorites', JSON.stringify(favorites));
+}
+
+function getFavoriteStatus(recipeTitle) {
+  var favorites = getFavoritesFromStorage();
+  return favorites.includes(recipeTitle);
+}
+
+function getFavoritesFromStorage() {
+  var favorites = localStorage.getItem('favorites');
+  return favorites ? JSON.parse(favorites) : [];
+}
+
+function clearRecipes() {
+  document.getElementById('apiResponse').innerHTML = '';
+}
+
 
 
 const motivation = [

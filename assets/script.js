@@ -56,9 +56,6 @@ function clearGIFs() {
 clearGIFsButton.addEventListener("click", clearGIFs);
 
 
-
-
-
 const motivation = [
   {
     quote: "COUGH",

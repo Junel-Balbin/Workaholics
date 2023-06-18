@@ -2,8 +2,7 @@
 @import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
 
 * {
-  margin: 0 auto;
-  padding: 10px;
+  padding: 8px;
   box-sizing: border-box;
   font-family: Chakra Petch, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
@@ -15,7 +14,15 @@ body {
 
 a {
   text-decoration: none;
+  text-align: center;
   color: inherit;
+}
+
+h1 {
+  text-align: center;
+  font-size: 35px;
+  font-weight: bolder;
+  margin-top: 20px;
 }
 
 .date-time {
@@ -23,6 +30,7 @@ a {
   flex-direction: column;
   align-items: center;
   margin-bottom: 20px;
+  font-size: 20px;
 }
 
 header {
@@ -31,13 +39,6 @@ header {
   background: #343739;
   color: #fff;
   font-size: 16px;
-}
-
-.container {
-  display: flex;
-  justify-content: center;
-  margin: 0 auto;
-  max-width: 1200px;
 }
 
 .card {
@@ -65,66 +66,6 @@ header {
   width: 100%;
 }
 
-.card1 {
-  border-style: solid;
-  border-width: 1px;
-  padding: 10px;
-  border-radius: 10px;
-  text-align: center;
-  width: 50%;
-  background-color: rgb(241, 245, 251);
-}
-
-.card1 header {
-  border-radius: 10px;
-  padding: 20px;
-}
-
-.card1 img {
-  border-radius: 20px;
-  width: 100%;
-}
-
-.card2 {
-  border-style: solid;
-  border-width: 1px;
-  padding: 10px;
-  border-radius: 10px;
-  text-align: center;
-  width: 50%;
-  background-color: rgb(241, 245, 251);
-}
-
-.card2 header {
-  border-radius: 10px;
-  padding: 20px;
-}
-
-.card2 img {
-  border-radius: 20px;
-  width: 100%;
-}
-
-.card3 {
-  border-style: solid;
-  border-width: 1px;
-  border-radius: 10px;
-  text-align: center;
-  padding: 10px;
-  width: 50%;
-  background-color: rgb(241, 245, 251);
-}
-
-.card3 header {
-  border-radius: 10px;
-  padding: 20px;
-}
-
-.card3 img {
-  border-radius: 20px;
-  width: 100%;
-}
-
 button {
   color: #090909;
   padding: 5px;
@@ -145,32 +86,6 @@ button:hover {
   transition: 0.2s ease-in-out;
   background-color: rgb(87, 163, 239);
   cursor: pointer;
-}
-
-#excuseCard {
-  border-style: solid;
-  border-width: 1px;
-  padding: 10px;
-  border-radius: 10px;
-  text-align: center;
-  width: 50%;
-  background-color: rgb(109, 177, 246);
-}
-
-.card {
-  border: 1px solid black;
-  padding: 10px;
-  margin-bottom: 10px;
-}
-
-.quote {
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.person {
-  font-size: 14px;
-  color: black;
 }
 
 @media screen and (max-width: 900px) {

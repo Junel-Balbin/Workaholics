@@ -13,31 +13,38 @@
     <div class="card3">
       <header>MISC. APPTS.</header>
         <img src="./images/miscappts.png" alt="doctors appt" />
-        <button id="miscButton" onclick="miscMe()">Generate Excuse</button>
-        <button id="saveExcuseButton">Save</button>
-        <button id="clearExcusesButton">Clear</button>
-        <button onclick="window.location.href = 'excuses.html';">Exit</button>
-        <h3 id="motivato"></h3>
         <br>
+        <br>
+        <button id="miscButton" onclick="miscMe()">Generate Excuse</button>
+        <button id="saveExcuseButton">Save Excuse</button>
+        <button id="clearGeneratedExcuseButton">Clear</button>
+        <h3 id="motivato"></h3>
+        <hr class="custom-hr">
         <input type="text" id="searchInput" placeholder="GIPHY CURE." style="width: 110px;">
         <button id="searchButton" onclick="searchGIF()">Search</button>
         <button id="clearGIFsButton">Close</button>
         <div id="gifContainer"></div>
-        <br>
+        <hr class="custom-hr">
         <button id="buttonId" onclick="fetchRecipes()">Chicken Soup Recipes</button>
         <button id="clearRecipesButton" onclick="clearRecipes()">X</button>
         <div id="apiResponse"></div> 
+        <hr class="custom-hr">
+        <button onclick="window.location.href = 'excuses.html';">Exit</button>
+        <hr class="custom-hr">
     </div>
   </main>  
   
   <section>
-    <div id="excuseCard" class="card" style="display: none;"><p>--- Your Saved Delivery Excuse ---</p>
+    <div id="excuseCard" class="card" style="display: none;" data-tilt>
+      <p>--- Your Saved Delivery Excuse ---</p>
       <div id="excuseQuote" class="quote"></div>
       <div id="excusePerson" class="person"></div>
+      <button id="clearExcusesButton">Delete</button>
     </div>
-  </section>
+  </section>  
     
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>   
+    <script src="./assets/vanilla-tilt.js"></script> 
     <script src="./assets/script2.js"></script>
 </body>
 </html>

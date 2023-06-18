@@ -3,6 +3,7 @@ const excuseCard = document.getElementById("excuseCard");
 const excuseQuote = document.getElementById("excuseQuote");
 const excusePerson = document.getElementById("excusePerson");
 const saveExcuseButton = document.getElementById("saveExcuseButton");
+const clearGeneratedExcuseButton = document.getElementById("clearGeneratedExcuseButton");
 const clearExcusesButton = document.getElementById("clearExcusesButton");
 const searchInput = document.getElementById("searchInput");
 const searchButton = document.getElementById("searchButton");
@@ -326,6 +327,20 @@ function miscMe() {
 }
 
 
+function clearGeneratedExcuse() {
+  display.innerHTML = "";
+
+  const savedExcuse = getSavedExcuse();
+  if (savedExcuse) {
+    updateExcuseCard(savedExcuse);
+  } else {
+    excuseCard.style.display = "none";
+  }
+}
+
+clearGeneratedExcuseButton.addEventListener("click", clearGeneratedExcuse);
+
+
 function clearExcuses() {
   localStorage.removeItem("selectedExcuse");
   excuseCard.style.display = "none";
@@ -345,3 +360,4 @@ if (savedExcuse) {
 }
 
 clearExcusesButton.addEventListener("click", clearExcuses);
+

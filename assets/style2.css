@@ -157,6 +157,32 @@ button:hover {
   text-align: center;
 }
 
+
+
+.thumbs-up {
+  font-size: 30px;
+  cursor: pointer;
+  color:#637988;
+}
+
+.thumbs-down {
+  font-size: 30px;
+  cursor: pointer;
+  color: #637988;
+}
+
+.thumbs-up.voted {
+  color: rgb(4, 127, 203);
+  font-size: 50px;
+  cursor: pointer;
+}
+
+.thumbs-down.voted {
+  color: rgb(198, 2, 2);
+  font-size: 47px;
+  cursor: pointer;
+}
+
 #motivato {
   color: black;
   font-size: 20px;

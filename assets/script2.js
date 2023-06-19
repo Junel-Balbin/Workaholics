@@ -178,57 +178,123 @@ function clearRecipes() {
 //--------------------------------------------------------------
 
 
+
 var query = '';
 
 $('#search-input').on('change', function() {
-    query = $(this).val();
+  query = $(this).val();
 });
 
 $('#search-input').on('keyup', function(event) {
-    if (event.key === 'Enter') {
-        makeRequest();
-    }
+  if (event.key === 'Enter') {
+    makeRequest();
+  }
 });
 
 function makeRequest() {
-    $.ajax({
-        method: 'GET',
-        url: 'https://api.api-ninjas.com/v1/nutrition?query=' + query,
-        headers: { 'X-Api-Key': 'R/lbk2JexyYe9JpA0Jdo7w==G6pQbG32x7JQZZox' },
-        contentType: 'application/json',
-        success: function(result) {
-            displayResults(result); 
-        },
-        error: function ajaxError(jqXHR) {
-            console.error('Error: ', jqXHR.responseText);
-        }
-    });
+  $.ajax({
+    method: 'GET',
+    url: 'https://api.api-ninjas.com/v1/nutrition?query=' + query,
+    headers: { 'X-Api-Key': 'R/lbk2JexyYe9JpA0Jdo7w==G6pQbG32x7JQZZox' },
+    contentType: 'application/json',
+    success: function(result) {
+      displayResults(result); 
+    },
+    error: function ajaxError(jqXHR) {
+      console.error('Error: ', jqXHR.responseText);
+    }
+  });
 }
 
 function displayResults(result) {
   var $resultsDiv = $('#results');
   $resultsDiv.empty();
 
+  var votes = JSON.parse(localStorage.getItem('votes')) || {};
 
   result.forEach(function(item) {
     var formattedString = JSON.stringify(item, null, 2);
 
-
     var $pre = $('<pre>').addClass('json-response').text(formattedString.slice(1, -1));
-    $resultsDiv.append($pre);
+
+    var $thumbsUp = $('<i>').addClass('fas fa-thumbs-up thumbs-up');
+    var $thumbsDown = $('<i>').addClass('fas fa-thumbs-down thumbs-down');
+
+    var $resultItem = $('<div>').addClass('result-item');
+    var $contentContainer = $('<div>').addClass('content-container');
+    $contentContainer.append($thumbsUp, $thumbsDown, $pre);
+    $resultItem.append($contentContainer);
+    $resultsDiv.append($resultItem);
+
+    var keyword = query.toLowerCase(); 
+
+    if (votes[keyword] && votes[keyword][item.id] === 'thumbs-up') {
+      $thumbsUp.addClass('voted');
+    } else if (votes[keyword] && votes[keyword][item.id] === 'thumbs-down') {
+      $thumbsDown.addClass('voted');
+    }
+
+    $thumbsUp.on('click', function() {
+      if ($thumbsUp.hasClass('voted')) {
+        removeVote(keyword, item.id);
+        $thumbsUp.removeClass('voted');
+      } else {
+        saveVote(keyword, item.id, 'thumbs-up');
+        $thumbsUp.addClass('voted');
+        $thumbsDown.removeClass('voted');
+      }
+    });
+
+    $thumbsDown.on('click', function() {
+      if ($thumbsDown.hasClass('voted')) {
+        removeVote(keyword, item.id);
+        $thumbsDown.removeClass('voted');
+      } else {
+        saveVote(keyword, item.id, 'thumbs-down');
+        $thumbsUp.removeClass('voted');
+        $thumbsDown.addClass('voted');
+      }
+    });
   });
 }
 
+function saveVote(keyword, itemId, vote) {
+  var votes = JSON.parse(localStorage.getItem('votes')) || {};
+  
+  if (!votes[keyword]) {
+    votes[keyword] = {};
+  }
 
+  votes[keyword][itemId] = vote;
+
+  localStorage.setItem('votes', JSON.stringify(votes));
+}
+
+function removeVote(keyword, itemId) {
+  var votes = JSON.parse(localStorage.getItem('votes')) || {};
+  
+  if (votes[keyword] && votes[keyword][itemId]) {
+    delete votes[keyword][itemId];
+
+    if (Object.keys(votes[keyword]).length === 0) {
+      delete votes[keyword];
+    }
+
+    localStorage.setItem('votes', JSON.stringify(votes));
+  }
+}
 
 $('#search-button').on('click', function() {
-    makeRequest();
+  makeRequest();
 });
 
 $('#clear-button').on('click', function() {
-    $('#search-input').val('');
-    $('#results').empty(); 
+  $('#search-input').val('');
+  $('#results').empty(); 
 });
+
+
+
 
 
 

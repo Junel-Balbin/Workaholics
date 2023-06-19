@@ -18,15 +18,16 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #090909;
+  color: white;
   padding: 5px;
   margin: 0 auto;
   font-size: 16px;
   border-radius: 10px;
   background: rgb(241, 245, 251);
+  background-color: #3f4f5c;
   border: none;
   transition: all 0.1s;
-  box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+  box-shadow: 10px 10px 10px -10px rgba(0,0,0,40);
 }
 
 button:hover {

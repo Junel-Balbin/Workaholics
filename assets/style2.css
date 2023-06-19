@@ -147,6 +147,15 @@ button:hover {
   cursor: pointer;
 }
 
+.json-response {
+  background-color: rgb(241, 245, 251);
+  padding: 10px;
+  font-size: 17px;
+  text-transform: capitalize;
+  align-items: center;
+  text-align: center;
+}
+
 #motivato {
   color: black;
   font-size: 20px;
@@ -209,7 +218,7 @@ button:hover {
   }
 
   header {
-    background: rgb(28, 137, 246);
+    background: rgb(35, 109, 183);
   }
 }
 

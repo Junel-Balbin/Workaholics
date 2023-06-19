@@ -11,39 +11,45 @@ const gifContainer = document.getElementById("gifContainer");
 const clearGIFsButton = document.getElementById("clearGIFsButton");
 
 
-function searchGIF() {
-  const searchTerm = searchInput.value;
-  if (searchTerm.trim() !== "") {
-    const apiKey = 'csx8dZaQHxPwuhacZ0JAs1xjFxE9lsIf';
-    const searchUrl = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${encodeURIComponent(searchTerm)}`;
+//--------------------------------------------------------------
 
-    $.ajax({
-      url: searchUrl,
-      method: 'GET'
-    }).done(function (response) {
-      console.log(response);
-      const gifUrl = response.data[0].images.original.url;
-      const gifContainer = document.getElementById('gifContainer');
-      gifContainer.innerHTML = `<img src="${gifUrl}" alt="GIF for ${searchTerm}" />`;
-    }).fail(function (xhr, status, error) {
-      console.error(error);
-    });
+
+  function searchGIF() {
+    const searchTerm = searchInput.value;
+    if (searchTerm.trim() !== "") {
+      const apiKey = 'csx8dZaQHxPwuhacZ0JAs1xjFxE9lsIf';
+      const searchUrl = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${encodeURIComponent(searchTerm)}`;
+
+      $.ajax({
+        url: searchUrl,
+        method: 'GET'
+      }).done(function (response) {
+        console.log(response);
+        const gifUrl = response.data[0].images.original.url;
+        const gifContainer = document.getElementById('gifContainer');
+        gifContainer.innerHTML = `<img src="${gifUrl}" alt="GIF for ${searchTerm}" />`;
+      }).fail(function (xhr, status, error) {
+        console.error(error);
+      });
+    }
   }
-}
 
-searchInput.addEventListener('keyup', function(event) {
-  if (event.key === 'Enter') {
-    searchGIF();
+  searchInput.addEventListener('keyup', function (event) {
+    if (event.key === 'Enter') {
+      searchGIF();
+    }
+  });
+
+  function clearGIFs() {
+    gifContainer.innerHTML = "";
+    searchInput.value = "";
+    searchInput.placeholder = "GIPHY CURE.";
   }
-});
 
-function clearGIFs() {
-  gifContainer.innerHTML = "";
-}
-
-clearGIFsButton.addEventListener("click", clearGIFs);
+  clearGIFsButton.addEventListener("click", clearGIFs);
 
 
+//--------------------------------------------------------------
 
 
 function fetchRecipes() {
@@ -58,13 +64,13 @@ function fetchRecipes() {
       var apiResponseDiv = document.getElementById('apiResponse');
       apiResponseDiv.innerHTML = '';
 
-      result.forEach(function(recipe) {
+      result.forEach(function(recipe, index) {
         var recipeTitle = recipe.title;
         var ingredients = recipe.ingredients;
         var instructions = recipe.instructions;
 
         var recipeButton = document.createElement('button');
-        recipeButton.textContent = recipeTitle;
+        recipeButton.textContent = recipeTitle + ' (' + (index + 1) + ')';
         recipeButton.className = 'recipe-button';
         recipeButton.addEventListener('click', function() {
           toggleCollapse(recipeButton);
@@ -78,7 +84,6 @@ function fetchRecipes() {
           event.stopPropagation();
           toggleFavorite(starIcon, recipeTitle);
         });
-
 
         var isFavorite = getFavoriteStatus(recipeTitle);
         if (isFavorite) {
@@ -115,6 +120,7 @@ function fetchRecipes() {
     }
   });
 }
+
 
 function toggleCollapse(recipeButton) {
   var recipeDiv = recipeButton.parentNode.parentNode;
@@ -166,6 +172,68 @@ function getFavoritesFromStorage() {
 function clearRecipes() {
   document.getElementById('apiResponse').innerHTML = '';
 }
+
+
+
+//--------------------------------------------------------------
+
+
+var query = '';
+
+$('#search-input').on('change', function() {
+    query = $(this).val();
+});
+
+$('#search-input').on('keyup', function(event) {
+    if (event.key === 'Enter') {
+        makeRequest();
+    }
+});
+
+function makeRequest() {
+    $.ajax({
+        method: 'GET',
+        url: 'https://api.api-ninjas.com/v1/nutrition?query=' + query,
+        headers: { 'X-Api-Key': 'R/lbk2JexyYe9JpA0Jdo7w==G6pQbG32x7JQZZox' },
+        contentType: 'application/json',
+        success: function(result) {
+            displayResults(result); 
+        },
+        error: function ajaxError(jqXHR) {
+            console.error('Error: ', jqXHR.responseText);
+        }
+    });
+}
+
+function displayResults(result) {
+  var $resultsDiv = $('#results');
+  $resultsDiv.empty();
+
+
+  result.forEach(function(item) {
+    var formattedString = JSON.stringify(item, null, 2);
+
+
+    var $pre = $('<pre>').addClass('json-response').text(formattedString.slice(1, -1));
+    $resultsDiv.append($pre);
+  });
+}
+
+
+
+$('#search-button').on('click', function() {
+    makeRequest();
+});
+
+$('#clear-button').on('click', function() {
+    $('#search-input').val('');
+    $('#results').empty(); 
+});
+
+
+
+
+//--------------------------------------------------------------
 
 
 
@@ -284,8 +352,6 @@ function miscMe() {
   const randVal = misc[Math.floor(Math.random() * listLength)];
   display.innerHTML = `<q>${randVal.quote}</q><br><br><small>${randVal.person}</small>`;
 }
-
-
 
 function saveExcuse(excuse) {
   localStorage.setItem("selectedExcuse", JSON.stringify(excuse));

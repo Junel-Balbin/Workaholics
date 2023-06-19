@@ -10,47 +10,39 @@ const searchButton = document.getElementById("searchButton");
 const gifContainer = document.getElementById("gifContainer");
 const clearGIFsButton = document.getElementById("clearGIFsButton");
 
+function searchGIF() {
+  const searchTerm = searchInput.value;
+  if (searchTerm.trim() !== "") {
+    const apiKey = 'csx8dZaQHxPwuhacZ0JAs1xjFxE9lsIf';
+    const searchUrl = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${encodeURIComponent(searchTerm)}`;
 
-//--------------------------------------------------------------
-
-
-  function searchGIF() {
-    const searchTerm = searchInput.value;
-    if (searchTerm.trim() !== "") {
-      const apiKey = 'csx8dZaQHxPwuhacZ0JAs1xjFxE9lsIf';
-      const searchUrl = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${encodeURIComponent(searchTerm)}`;
-
-      $.ajax({
-        url: searchUrl,
-        method: 'GET'
-      }).done(function (response) {
-        console.log(response);
-        const gifUrl = response.data[0].images.original.url;
-        const gifContainer = document.getElementById('gifContainer');
-        gifContainer.innerHTML = `<img src="${gifUrl}" alt="GIF for ${searchTerm}" />`;
-      }).fail(function (xhr, status, error) {
-        console.error(error);
-      });
-    }
+    $.ajax({
+      url: searchUrl,
+      method: 'GET'
+    }).done(function (response) {
+      console.log(response);
+      const gifUrl = response.data[0].images.original.url;
+      const gifContainer = document.getElementById('gifContainer');
+      gifContainer.innerHTML = `<img src="${gifUrl}" alt="GIF for ${searchTerm}" />`;
+    }).fail(function (xhr, status, error) {
+      console.error(error);
+    });
   }
+}
 
-  searchInput.addEventListener('keyup', function (event) {
-    if (event.key === 'Enter') {
-      searchGIF();
-    }
-  });
-
-  function clearGIFs() {
-    gifContainer.innerHTML = "";
-    searchInput.value = "";
-    searchInput.placeholder = "GIPHY CURE.";
+searchInput.addEventListener('keyup', function (event) {
+  if (event.key === 'Enter') {
+    searchGIF();
   }
+});
 
-  clearGIFsButton.addEventListener("click", clearGIFs);
+function clearGIFs() {
+  gifContainer.innerHTML = "";
+  searchInput.value = "";
+  searchInput.placeholder = "GIPHY CURE.";
+}
 
-
-//--------------------------------------------------------------
-
+clearGIFsButton.addEventListener("click", clearGIFs);
 
 function fetchRecipes() {
   var query = 'chicken soup';
@@ -121,7 +113,6 @@ function fetchRecipes() {
   });
 }
 
-
 function toggleCollapse(recipeButton) {
   var recipeDiv = recipeButton.parentNode.parentNode;
   var ingredientsDiv = recipeDiv.querySelector('div:nth-child(2)');
@@ -173,11 +164,7 @@ function clearRecipes() {
   document.getElementById('apiResponse').innerHTML = '';
 }
 
-
-
 //--------------------------------------------------------------
-
-
 
 var query = '';
 
@@ -198,7 +185,7 @@ function makeRequest() {
     headers: { 'X-Api-Key': 'R/lbk2JexyYe9JpA0Jdo7w==G6pQbG32x7JQZZox' },
     contentType: 'application/json',
     success: function(result) {
-      displayResults(result); 
+      displayResults(result);
     },
     error: function ajaxError(jqXHR) {
       console.error('Error: ', jqXHR.responseText);
@@ -226,7 +213,7 @@ function displayResults(result) {
     $resultItem.append($contentContainer);
     $resultsDiv.append($resultItem);
 
-    var keyword = query.toLowerCase(); 
+    var keyword = query.toLowerCase();
 
     if (votes[keyword] && votes[keyword][item.id] === 'thumbs-up') {
       $thumbsUp.addClass('voted');
@@ -260,7 +247,7 @@ function displayResults(result) {
 
 function saveVote(keyword, itemId, vote) {
   var votes = JSON.parse(localStorage.getItem('votes')) || {};
-  
+
   if (!votes[keyword]) {
     votes[keyword] = {};
   }
@@ -272,7 +259,7 @@ function saveVote(keyword, itemId, vote) {
 
 function removeVote(keyword, itemId) {
   var votes = JSON.parse(localStorage.getItem('votes')) || {};
-  
+
   if (votes[keyword] && votes[keyword][itemId]) {
     delete votes[keyword][itemId];
 
@@ -290,17 +277,11 @@ $('#search-button').on('click', function() {
 
 $('#clear-button').on('click', function() {
   $('#search-input').val('');
-  $('#results').empty(); 
+  $('#results').empty();
 });
 
 
-
-
-
-
-
 //--------------------------------------------------------------
-
 
 
 const motivation = [
@@ -367,7 +348,7 @@ const physical = [
     quote: "GOT INTO A FIGHT",
     person: "My dog wouldn't listen to me so we argued all night long."
   },
-    {
+  {
     quote: "BROKEN HEART",
     person: "My significant other left me. Now I have Broken Heart Syndrome."
   },
@@ -470,10 +451,11 @@ const misc = [
     person: "I need to see a cardiologist soon to address my Broken Heart Syndrome."
   },
   {
-  quote: "OTORHINOLARYNGOLOGISTS",
-  person: "I'm undergoing treatment with an otorhinolaryngologist to tackle my extraordinary talent of transforming meetings into humming concerts."
-}
+    quote: "OTORHINOLARYNGOLOGISTS",
+    person: "I'm undergoing treatment with an otorhinolaryngologist to tackle my extraordinary talent of transforming meetings into humming concerts."
+  }
 ];
+
 
 
 //--------------------------------------------------------------
@@ -542,7 +524,6 @@ function miscMe() {
   saveExcuseButton.addEventListener("click", () => saveExcuse(randVal));
 }
 
-
 function clearGeneratedExcuse() {
   display.innerHTML = "";
 
@@ -555,7 +536,6 @@ function clearGeneratedExcuse() {
 }
 
 clearGeneratedExcuseButton.addEventListener("click", clearGeneratedExcuse);
-
 
 function clearExcuses() {
   localStorage.removeItem("selectedExcuse");
@@ -576,4 +556,3 @@ if (savedExcuse) {
 }
 
 clearExcusesButton.addEventListener("click", clearExcuses);
-

@@ -1,58 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Workaholics</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <link rel="stylesheet" href="./assets/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Workaholics</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="./assets/style.css">
 </head>
-    <h1><a href="index.html">CHOOSE YOUR TYPE OF EXCUSE FOR TODAY</a></h1>
-    <div class="date-time">
-      <p id="currentDay" class="lead"></p>
-      <span id="date"></span>
-      <span id="time"></span>
-  </div>
-<main>
-    <section class="card" data-tilt>
-        <header>SICK</header>
-        <img src="./images/sick.png" alt="Sick Girl" />
-        <p>
-            <button onclick="window.location.href = 'delivery.html';">Choose</button>
-        </p>
-      </section>
-      <section class="card" data-tilt>
-        <header>PHYSICAL INJURY</header>
-        <img src="./images/physicalinjury.png" alt="Guy with Broken Leg" />
-        <p>
-            <button onclick="window.location.href = 'physical.html';">Choose</button>
-        </p>
-      </section>
-      <section class="card" data-tilt>
-        <header>MENTAL HEALTH</header>
-        <img
-          src="./images/mentalillness.png" alt="Mental Illness"/>
-        <p>
-            <button onclick="window.location.href = 'mental.html';">Choose</button>
-        </p>
-      </section>
-      <section class="card" data-tilt>
-        <header>MISC. APPTS.</header>
-        <img
-          src="./images/miscappts.png" alt="Misc Appointments"/>
-        <p>
-            <button onclick="window.location.href = 'misc.html';">Choose</button>
-        </p>
-      </section>
-    </main>
-
 <body>
+  <h1><a href="index.html">CHOOSE YOUR TYPE OF EXCUSE FOR TODAY</a></h1>
+  <div class="date-time">
+    <p id="currentDay" class="lead"></p>
+    <span id="date"></span>
+    <span id="time"></span>
+  </div>
+
+  <main>
+    <section class="card" data-tilt>
+      <header>SICK</header>
+      <img src="./images/sick.png" alt="Sick Girl" />
+      <p>
+        <button onclick="window.location.href = 'delivery.html';">Choose</button>
+      </p>
+    </section>
+
+    <section class="card" data-tilt>
+      <header>PHYSICAL INJURY</header>
+      <img src="./images/physicalinjury.png" alt="Guy with Broken Leg" />
+      <p>
+        <button onclick="window.location.href = 'physical.html';">Choose</button>
+      </p>
+    </section>
+
+    <section class="card" data-tilt>
+      <header>MENTAL HEALTH</header>
+      <img src="./images/mentalillness.png" alt="Mental Illness" />
+      <p>
+        <button onclick="window.location.href = 'mental.html';">Choose</button>
+      </p>
+    </section>
+
+    <section class="card" data-tilt>
+      <header>MISC. APPTS.</header>
+      <img src="./images/miscappts.png" alt="Misc Appointments" />
+      <p>
+        <button onclick="window.location.href = 'misc.html';">Choose</button>
+      </p>
+    </section>
+  </main>
+
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script
-  src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
-  integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
-  crossorigin="anonymous"
-></script>
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js" integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
   <script src="./assets/vanilla-tilt.js"></script>
   <script src="./assets/script.js"></script>
 </body>

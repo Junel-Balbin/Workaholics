@@ -49,19 +49,19 @@ header {
   text-align: center;
   width: 55%;
   background-color: rgb(241, 245, 251);
-  box-shadow: 10px 10px 10px -10px rgba(0,0,0,1);
+  box-shadow: 10px 10px 10px -10px rgba(0, 0, 0, 1);
 }
 
 .card1 header {
   border-radius: 10px;
   padding: 20px;
-  box-shadow: 10px 10px 10px -10px rgba(0,0,0,1);
+  box-shadow: 10px 10px 10px -10px rgba(0, 0, 0, 1);
 }
 
 .card1 img {
   border-radius: 20px;
   width: 100%;
-  box-shadow: 10px 10px 10px -10px rgba(0,0,0,1);
+  box-shadow: 10px 10px 10px -10px rgba(0, 0, 0, 1);
 }
 
 .card2 {
@@ -72,19 +72,19 @@ header {
   text-align: center;
   width: 55%;
   background-color: rgb(241, 245, 251);
-  box-shadow: 10px 10px 10px -10px rgba(0,0,0,1);
+  box-shadow: 10px 10px 10px -10px rgba(0, 0, 0, 1);
 }
 
 .card2 header {
   border-radius: 10px;
   padding: 20px;
-  box-shadow: 10px 10px 10px -10px rgba(0,0,0,1);
+  box-shadow: 10px 10px 10px -10px rgba(0, 0, 0, 1);
 }
 
 .card2 img {
   border-radius: 20px;
   width: 100%;
-  box-shadow: 10px 10px 10px -10px rgba(0,0,0,1);
+  box-shadow: 10px 10px 10px -10px rgba(0, 0, 0, 1);
 }
 
 .card3 {
@@ -95,19 +95,19 @@ header {
   padding: 10px;
   width: 55%;
   background-color: rgb(241, 245, 251);
-  box-shadow: 10px 10px 10px -10px rgba(0,0,0,1);
+  box-shadow: 10px 10px 10px -10px rgba(0, 0, 0, 1);
 }
 
 .card3 header {
   border-radius: 10px;
   padding: 20px;
-  box-shadow: 10px 10px 10px -10px rgba(0,0,0,1);
+  box-shadow: 10px 10px 10px -10px rgba(0, 0, 0, 1);
 }
 
 .card3 img {
   border-radius: 20px;
   width: 100%;
-  box-shadow: 10px 10px 10px -10px rgba(0,0,0,1);
+  box-shadow: 10px 10px 10px -10px rgba(0, 0, 0, 1);
 }
 
 button {
@@ -138,11 +138,11 @@ button:hover {
   border-radius: 5px;
   text-align: center;
   margin-top: 1px;
-  margin-bottom: 1px; 
+  margin-bottom: 1px;
 }
 
 .favorite-star {
-  color: rgb(28, 137, 246); 
+  color: rgb(28, 137, 246);
   font-size: 25px;
   cursor: pointer;
 }
@@ -157,12 +157,10 @@ button:hover {
   text-align: center;
 }
 
-
-
 .thumbs-up {
   font-size: 30px;
   cursor: pointer;
-  color:#637988;
+  color: #637988;
 }
 
 .thumbs-down {
@@ -202,7 +200,7 @@ button:hover {
   text-align: center;
   width: 55%;
   background-color: rgb(109, 177, 246);
-  box-shadow: 10px 10px 10px -10px rgba(0,0,0,1);
+  box-shadow: 10px 10px 10px -10px rgba(0, 0, 0, 1);
 }
 
 #clearExcusesButton {
@@ -210,13 +208,13 @@ button:hover {
   color: white;
   border-radius: 10px;
   text-align: center;
-  box-shadow: 10px 10px 10px -10px rgba(0,0,0,40);
+  box-shadow: 10px 10px 10px -10px rgba(0, 0, 0, 40);
 }
 
 #clearExcusesButton:hover {
   background-color: rgb(218, 224, 232);
   color: black;
-  box-shadow: 10px 10px 10px -10px rgba(0,0,0,40);
+  box-shadow: 10px 10px 10px -10px rgba(0, 0, 0, 40);
 }
 
 #excusePerson {

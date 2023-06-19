@@ -255,8 +255,28 @@ const motivation = [
     person: "I've been thinking about work but now I have a headache."
   },
   {
-    quote: "TAKOTSUBO",
-    person: "My significant other left me. Now I have Broken Heart Syndrome."
+    quote: "STOMACHACHE",
+    person: "I accidentally tried to eat my own cooking and my stomach is protesting in rebellion."
+  },
+  {
+    quote: "FEVER",
+    person: "I woke up this morning feeling like I'm auditioning for a role in a hot sauce commercial."
+  },
+  {
+    quote: "SORE THROAT",
+    person: "I've been singing like a rock star in the shower and now my throat thinks it's Freddy Mercury."
+  },
+  {
+    quote: "NAUSEA",
+    person: "I had a brief encounter with a questionable sandwich and now I'm questioning my choices."
+  },
+  {
+    quote: "ALLERGIES",
+    person: "My body has decided to rebel against nature's innocent offerings of pollen and dander."
+  },
+  {
+    quote: "MIGRAINE",
+    person: "I've been chosen as the unwilling recipient of an impromptu drum solo inside my skull."
   }
 ];
 
@@ -280,6 +300,26 @@ const physical = [
   {
     quote: "GOT INTO A FIGHT",
     person: "My dog wouldn't listen to me so we argued all night long."
+  },
+    {
+    quote: "BROKEN HEART",
+    person: "My significant other left me. Now I have Broken Heart Syndrome."
+  },
+  {
+    quote: "BACK PAIN",
+    person: "I tried to do a dance move that clearly required a younger more agile version of myself."
+  },
+  {
+    quote: "MUSCLE CRAMPS",
+    person: "I attempted a series of yoga poses that turned me into a human pretzel. Now I can't untwist myself."
+  },
+  {
+    quote: "PAPER CUT",
+    person: "I suffered a tiny but excruciating paper cut and I'm unable to operate a keyboard without wincing in pain."
+  },
+  {
+    quote: "SLIPPERY SOCKS",
+    person: "I underestimated the dangers of wearing socks on a slippery surfaces. It's hard to walk now."
   }
 ];
 
@@ -301,8 +341,28 @@ const mental = [
     person: "I'm afraid the voices in my head will write some code that will crash the entire system."
   },
   {
-    quote: "ANXIOUS",
+    quote: "ANXIETY",
     person: "There are bugs on the floor. It sounds silly but I can't get out of my bed and debug."
+  },
+  {
+    quote: "INSOMNIA",
+    person: "I had a boxing match with Sleep and it won the 1st round with a knockout punch."
+  },
+  {
+    quote: "VERTIGO",
+    person: "I've been taking a wild ride on the flight of stairs to the office but sadly without the fun part."
+  },
+  {
+    quote: "DECISION MAKING",
+    person: "I'm experiencing an acute case of decision paralysis. I can't decide whether to come to work or stay in bed so I'm stuck in limbo."
+  },
+  {
+    quote: "MIND READING",
+    person: "My headphones are missing and discovered I have the uncanny ability to hear everyone's thoughts and the office became way too noisy for me."
+  },
+  {
+    quote: "EXCESSIVE LAUGHTER",
+    person: "I accidentally watched a marathon of comedy shows and now I can't stop laughing hysterically. It's quite disruptive."
   }
 ];
 
@@ -313,7 +373,7 @@ const misc = [
   },
   {
     quote: "EYE EXAM",
-    person: "My coworker told me about cataracts, glaucoma and even blindness. My eyes became watery and wouldn't stop."
+    person: "My coworker told me about cataracts, glaucoma and even blindness. My eyes became watery and wouldn't stop. I need to see my Optometrist."
   },
   {
     quote: "BLOOD TEST",
@@ -326,8 +386,32 @@ const misc = [
   {
     quote: "DERMATOLOGIST",
     person: "I've been itching my face so I'm afraid it might be contagious."
-  }
+  },
+  {
+    quote: "PSYCHIATRIST",
+    person: "I need to see a psychiatrist to address my severe and uncontrollable tendency to crack inappropriate jokes during meetings."
+  },
+  {
+    quote: "PHYSICAL THERAPIST",
+    person: "I urgently need to see a physical therapist to recover from my addiction to high-five marathons which has left my arm in a state of perpetual high-fiving readiness."
+  },
+  {
+    quote: "FOOT DOCTOR",
+    person: "I urgently need to see a foot doctor to regain control over my feet after an unfortunate incident involving The Moonwalk."
+  },
+  {
+    quote: "CARDIOLOGIST",
+    person: "I need to see a cardiologist soon to address my Broken Heart Syndrome."
+  },
+  {
+  quote: "OTORHINOLARYNGOLOGISTS",
+  person: "I'm undergoing treatment with an otorhinolaryngologist to tackle my extraordinary talent of transforming meetings into humming concerts."
+}
 ];
+
+
+//--------------------------------------------------------------
+
 
 function motivateMe() {
   const listLength = motivation.length;

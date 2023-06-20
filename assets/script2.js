@@ -1,3 +1,4 @@
+// Get references to the HTML elements.
 const display = document.getElementById("motivato");
 const excuseCard = document.getElementById("excuseCard");
 const excuseQuote = document.getElementById("excuseQuote");
@@ -10,6 +11,7 @@ const searchButton = document.getElementById("searchButton");
 const gifContainer = document.getElementById("gifContainer");
 const clearGIFsButton = document.getElementById("clearGIFsButton");
 
+// Function to search for a GIF using the GIPHY API.
 function searchGIF() {
   const searchTerm = searchInput.value;
   if (searchTerm.trim() !== "") {
@@ -30,20 +32,24 @@ function searchGIF() {
   }
 }
 
+// Event Listener for keyup event on searchInput & call searchGIF function when Enter is pressed.
 searchInput.addEventListener('keyup', function (event) {
   if (event.key === 'Enter') {
     searchGIF();
   }
 });
 
+// Function to clear the displayed GIFs and search input.
 function clearGIFs() {
   gifContainer.innerHTML = "";
   searchInput.value = "";
   searchInput.placeholder = "GIPHY CURE.";
 }
 
+// Event listener for clearGIFsButton click event.
 clearGIFsButton.addEventListener("click", clearGIFs);
 
+// Function to fetch recipes using an Ninja Recipes API.
 function fetchRecipes() {
   var query = 'chicken soup';
 
@@ -113,6 +119,7 @@ function fetchRecipes() {
   });
 }
 
+// Function to toggle the visibility of ingredients and instructions for a recipe.
 function toggleCollapse(recipeButton) {
   var recipeDiv = recipeButton.parentNode.parentNode;
   var ingredientsDiv = recipeDiv.querySelector('div:nth-child(2)');
@@ -122,6 +129,7 @@ function toggleCollapse(recipeButton) {
   instructionsDiv.style.display = instructionsDiv.style.display === 'none' ? 'block' : 'none';
 }
 
+// Function to toggle the favorite status of a recipe.
 function toggleFavorite(starIcon, recipeTitle) {
   starIcon.classList.toggle('favorite');
   var isFavorite = starIcon.classList.contains('favorite');
@@ -135,6 +143,7 @@ function toggleFavorite(starIcon, recipeTitle) {
   }
 }
 
+// Function to save the favorite status of a recipe to local storage.
 function saveFavoriteStatus(recipeTitle, isFavorite) {
   var favorites = getFavoritesFromStorage();
 
@@ -150,34 +159,42 @@ function saveFavoriteStatus(recipeTitle, isFavorite) {
   localStorage.setItem('favorites', JSON.stringify(favorites));
 }
 
+// Function to check if a recipe is marked as a favorite.
 function getFavoriteStatus(recipeTitle) {
   var favorites = getFavoritesFromStorage();
   return favorites.includes(recipeTitle);
 }
 
+// Function to retrieve favorite recipes from local storage.
 function getFavoritesFromStorage() {
   var favorites = localStorage.getItem('favorites');
   return favorites ? JSON.parse(favorites) : [];
 }
 
+// Function to clear the displayed recipes.
 function clearRecipes() {
   document.getElementById('apiResponse').innerHTML = '';
 }
 
+
 //--------------------------------------------------------------
 
+// Empty string variable for user search input.
 var query = '';
 
+// Event listener for changes in the search input.
 $('#search-input').on('change', function() {
   query = $(this).val();
 });
 
+// Event listener for keyup event when user press the ENTER key.
 $('#search-input').on('keyup', function(event) {
   if (event.key === 'Enter') {
     makeRequest();
   }
 });
 
+// Function to make a request from Ninja Nutrition API.
 function makeRequest() {
   $.ajax({
     method: 'GET',
@@ -193,6 +210,7 @@ function makeRequest() {
   });
 }
 
+// Function to display the results of the API request.
 function displayResults(result) {
   var $resultsDiv = $('#results');
   $resultsDiv.empty();
@@ -215,12 +233,14 @@ function displayResults(result) {
 
     var keyword = query.toLowerCase();
 
+    // Check if the item has been voted (thumbs-up or thumbs-down) and update the corresponding icon.
     if (votes[keyword] && votes[keyword][item.id] === 'thumbs-up') {
       $thumbsUp.addClass('voted');
     } else if (votes[keyword] && votes[keyword][item.id] === 'thumbs-down') {
       $thumbsDown.addClass('voted');
     }
 
+    // Event listener for thumbs-up icon click.
     $thumbsUp.on('click', function() {
       if ($thumbsUp.hasClass('voted')) {
         removeVote(keyword, item.id);
@@ -232,6 +252,7 @@ function displayResults(result) {
       }
     });
 
+    // Event listener for thumbs-down icon click.
     $thumbsDown.on('click', function() {
       if ($thumbsDown.hasClass('voted')) {
         removeVote(keyword, item.id);
@@ -245,6 +266,7 @@ function displayResults(result) {
   });
 }
 
+// Function to save a vote to local storage.
 function saveVote(keyword, itemId, vote) {
   var votes = JSON.parse(localStorage.getItem('votes')) || {};
 
@@ -257,6 +279,7 @@ function saveVote(keyword, itemId, vote) {
   localStorage.setItem('votes', JSON.stringify(votes));
 }
 
+// Function to remove a vote from local storage.
 function removeVote(keyword, itemId) {
   var votes = JSON.parse(localStorage.getItem('votes')) || {};
 
@@ -271,10 +294,12 @@ function removeVote(keyword, itemId) {
   }
 }
 
+// Event listener for search button click.
 $('#search-button').on('click', function() {
   makeRequest();
 });
 
+// Event listener for clear button click.
 $('#clear-button').on('click', function() {
   $('#search-input').val('');
   $('#results').empty();
@@ -284,6 +309,7 @@ $('#clear-button').on('click', function() {
 //--------------------------------------------------------------
 
 
+// Arrays of Sick Excuses for user selection.
 const motivation = [
   {
     quote: "COUGH",
@@ -327,6 +353,7 @@ const motivation = [
   }
 ];
 
+ // Arrays of Physical Injuries Excuses for user selection.
 const physical = [
   {
     quote: "DUI",
@@ -370,6 +397,7 @@ const physical = [
   }
 ];
 
+// Arrays of Mental Excuses for user selection.
 const mental = [
   {
     quote: "GOING CRAZY",
@@ -413,6 +441,7 @@ const mental = [
   }
 ];
 
+// Arrays of Misc. Appt. Excuses for user selection.
 const misc = [
   {
     quote: "DENTIST",
@@ -457,73 +486,54 @@ const misc = [
 ];
 
 
-
 //--------------------------------------------------------------
 
-
+// Function to generate a sick excuse.
 function motivateMe() {
   const listLength = motivation.length;
   const randVal = motivation[Math.floor(Math.random() * listLength)];
   display.innerHTML = `<q>${randVal.quote}</q><br><br><small>${randVal.person}</small>`;
+  saveExcuseButton.addEventListener("click", () => saveExcuse(randVal));
 }
 
+// Function to generate a physical excuse.
 function physicalMe() {
   const listLength = physical.length;
   const randVal = physical[Math.floor(Math.random() * listLength)];
   display.innerHTML = `<q>${randVal.quote}</q><br><br><small>${randVal.person}</small>`;
+  saveExcuseButton.addEventListener("click", () => saveExcuse(randVal));
 }
 
+// Function to generate a mental excuse.
 function mentalMe() {
   const listLength = mental.length;
   const randVal = mental[Math.floor(Math.random() * listLength)];
   display.innerHTML = `<q>${randVal.quote}</q><br><br><small>${randVal.person}</small>`;
+  saveExcuseButton.addEventListener("click", () => saveExcuse(randVal));
 }
 
+// Function to generate a Misc. Appt. excuse.
 function miscMe() {
   const listLength = misc.length;
   const randVal = misc[Math.floor(Math.random() * listLength)];
   display.innerHTML = `<q>${randVal.quote}</q><br><br><small>${randVal.person}</small>`;
+  saveExcuseButton.addEventListener("click", () => saveExcuse(randVal));
 }
 
+// Function to save the selected excuse in local storage.
 function saveExcuse(excuse) {
   localStorage.setItem("selectedExcuse", JSON.stringify(excuse));
   updateExcuseCard(excuse);
 }
 
+// Function to update the excuse card with the selected excuse.
 function updateExcuseCard(excuse) {
   excuseQuote.textContent = excuse.quote;
   excusePerson.textContent = excuse.person;
   excuseCard.style.display = "block";
 }
 
-function motivateMe() {
-  const listLength = motivation.length;
-  const randVal = motivation[Math.floor(Math.random() * listLength)];
-  display.innerHTML = `<q>${randVal.quote}</q><br><br><small>${randVal.person}</small>`;
-  saveExcuseButton.addEventListener("click", () => saveExcuse(randVal));
-}
-
-function physicalMe() {
-  const listLength = physical.length;
-  const randVal = physical[Math.floor(Math.random() * listLength)];
-  display.innerHTML = `<q>${randVal.quote}</q><br><br><small>${randVal.person}</small>`;
-  saveExcuseButton.addEventListener("click", () => saveExcuse(randVal));
-}
-
-function mentalMe() {
-  const listLength = mental.length;
-  const randVal = mental[Math.floor(Math.random() * listLength)];
-  display.innerHTML = `<q>${randVal.quote}</q><br><br><small>${randVal.person}</small>`;
-  saveExcuseButton.addEventListener("click", () => saveExcuse(randVal));
-}
-
-function miscMe() {
-  const listLength = misc.length;
-  const randVal = misc[Math.floor(Math.random() * listLength)];
-  display.innerHTML = `<q>${randVal.quote}</q><br><br><small>${randVal.person}</small>`;
-  saveExcuseButton.addEventListener("click", () => saveExcuse(randVal));
-}
-
+// Function to clear the generated excuse from the display.
 function clearGeneratedExcuse() {
   display.innerHTML = "";
 
@@ -535,13 +545,16 @@ function clearGeneratedExcuse() {
   }
 }
 
+// Event listener to button for clearing generated excuse.
 clearGeneratedExcuseButton.addEventListener("click", clearGeneratedExcuse);
 
+// Function to clear the saved excuse from local storage.
 function clearExcuses() {
   localStorage.removeItem("selectedExcuse");
   excuseCard.style.display = "none";
 }
 
+// Function to retrieve the saved excuse from local storage.
 function getSavedExcuse() {
   const savedExcuse = localStorage.getItem("selectedExcuse");
   if (savedExcuse) {
@@ -555,4 +568,5 @@ if (savedExcuse) {
   updateExcuseCard(savedExcuse);
 }
 
+// Event listener to button for clearing saved excuses.
 clearExcusesButton.addEventListener("click", clearExcuses);

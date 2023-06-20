@@ -1,3 +1,4 @@
+// Function for current date and time.
 function nowTime() {
   var dateElement = $("#date");
   var timeElement = $("#time");

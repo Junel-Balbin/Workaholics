@@ -23,7 +23,7 @@
 
 * Upon selecting an excuse card. You should be able to generate a plausible random excuse related to the chosen category and save the excuse you would like to use to call or message your boss.
 
-* After you have selected your excuse. You have the option to search a GIF from GIPHY related to the excuse to lighten the mood because laughter is the best medicine.
+* After you have selected & saved your excuse. You have the option to search a GIF from GIPHY related to the excuse to lighten the mood because laughter is the best medicine.
 
 * Additionally, you have the ability to search and choose from a variety of Chicken Soup Recipes. Treat yourself to a comforting hot meal while you are away.  Click the Ninja Star to favorite & save.
 
@@ -39,7 +39,7 @@
 
 
 ## Future Development:
-* The future development of the application aims to be a comprehensive tool for homebound individuals. Addressing various aspects of being sick at home. It will offer entertainment choices like movie, tv shows and video game searches. Provide health support with over the counter medicine feature for minor health issues. Help provide temporary relief based on common ailments and can help you find appropriate remedies. Assists with workplace communication when calling in sick. By combining these features with the current application will no doubt help make sick days more manageable and comfortable. Let's not get other people sick.
+* The future development of the application aims to be a comprehensive tool for homebound individuals. Addressing various aspects of being sick at home. It will offer entertainment choices like movies, tv shows and video games searches. Provide health support with over the counter medicine feature for minor health issues. Help provide temporary relief based on common ailments and can help you find appropriate remedies. Assists with workplace communication when calling in sick. By combining these features with the current application will no doubt help make sick days more manageable and comfortable. Let's not get other people sick.
 
 
 ## Team Member Role:

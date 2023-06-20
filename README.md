@@ -60,6 +60,7 @@
 * HTML, CSS & JavaScript.
 * Visual Studio Code.
 * [Bulma CSS Framework.](https://bulma.io/)
+* [Vanilla Data Tilt.](https://micku7zu.github.io/vanilla-tilt.js/)
 * [Giphy Gifs API.](https://developers.giphy.com/)
 * [API-Ninjas API.](https://api-ninjas.com/)
 * [Font Awesome.](https://fontawesome.com/)

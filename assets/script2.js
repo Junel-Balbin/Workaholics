@@ -176,7 +176,6 @@ function clearRecipes() {
   document.getElementById('apiResponse').innerHTML = '';
 }
 
-
 //--------------------------------------------------------------
 
 // Empty string variable for user search input.
@@ -305,9 +304,7 @@ $('#clear-button').on('click', function() {
   $('#results').empty();
 });
 
-
 //--------------------------------------------------------------
-
 
 // Arrays of Sick Excuses for user selection.
 const motivation = [
@@ -484,7 +481,6 @@ const misc = [
     person: "I'm undergoing treatment with an otorhinolaryngologist to tackle my extraordinary talent of transforming meetings into humming concerts."
   }
 ];
-
 
 //--------------------------------------------------------------
 

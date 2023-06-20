@@ -95,6 +95,7 @@ button:hover {
   cursor: pointer;
 }
 
+/* For Responsive Design. */
 @media screen and (max-width: 900px) {
   .card {
     width: 50%;

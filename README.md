@@ -6,7 +6,7 @@
 * Let's say you need a day off of work but have no idea what to say.  We have you covered. You'll go to CallinSki, decide why you want to call in.
 
 ## User Story:
-* Notify my boss that I am unable to go to work today. I don't know exactly what to say and it makes me nervous.
+* I want to notify my boss that I am unable to go to work today. I don't know exactly what to say and it makes me nervous.
 * Sick Excuses for feeling unwell and unable to perform my duties.
 * Physical Injury Excuses after sustaining a physical injury that prevents me from attending work.
 * Mental Health Excuses coping with mental health challenges that make it difficult for me to go to work.
@@ -76,7 +76,7 @@
 ## Project Links:
 * [Workaholics: Callinski.](https://junel-balbin.github.io/Workaholics/)
 * [Github Repository.](https://github.com/Junel-Balbin/Workaholics)
-
+* [Presentation.](https://docs.google.com/presentation/d/e/2PACX-1vS0x619lqr0uBfPpfE7ZP5TYgvJT5_IMmmSUplUCQobIlZ_ijeHYlwDfJIUsJaK_uzvupgI6q1Ei71w/pub?start=false&loop=false&delayms=3000)
 
 ## License: 
 * MIT License

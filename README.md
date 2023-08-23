@@ -1,4 +1,4 @@
-<img src="./images/banner.png">
+<img src="./assets/images/banner.png">
 
 # Workaholics: Callinski
 
@@ -33,9 +33,9 @@
 
 
 ## Application User Interface:
-<img src="./images/4excusecard.png">
+<img src="./assets/images/4excusecard.png">
 
-<img src="./images/savedexcuse.png">
+<img src="./assets/images/savedexcuse.png">
 
 
 ## Future Development:
